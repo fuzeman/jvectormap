@@ -1,2 +1,5 @@
 .DS_Store
 jquery.jvectormap.min.js
+
+/maps/ne_10m_admin_1_states_provinces
+/maps/shapes
