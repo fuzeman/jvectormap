@@ -11,6 +11,7 @@ from osgeo import ogr
 from osgeo import osr
 import json
 import shapely.geometry
+import shapely.wkb
 import codecs
 
 class Map:
@@ -249,7 +250,10 @@ class Converter:
       polygons = geometry.geoms
     else:
       polygons = [geometry]
+
     polygons = filter(lambda p: p.area > self.minimal_area, polygons)
+    #print '\t', [(p.area / 1000000) for p in polygons]
+
     return shapely.geometry.multipolygon.MultiPolygon(polygons)
 
 

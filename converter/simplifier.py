@@ -6,14 +6,19 @@ from osgeo import osr
 import anyjson
 import shapely.geometry
 import shapely.ops
+import shapely.wkb
 import codecs
 import time
+
+if len(sys.argv) < 3:
+  print "USAGE: simplifier.py <infile> <outfile>"
+  exit(1)
 
 
 format = '%.8f %.8f'
 tolerance = 0.01
-infile = '/Users/kirilllebedev/Maps/50m-admin-0-countries/ne_50m_admin_0_countries.shp'
-outfile = 'map.shp'
+infile = sys.argv[1]
+outfile = sys.argv[2]
 
 # Open the datasource to operate on.
 in_ds = ogr.Open( infile, update = 0 )
@@ -191,7 +196,7 @@ while in_feat is not None:
     shp_layer.CreateFeature( out_feat )
     out_feat.Destroy()
   else:
-    print 'geometry is too small: '+in_feat.GetField(16)
+    print 'geometry is too small: %s' % in_feat.GetField(16)
 
   in_feat.Destroy()
   in_feat = in_layer.GetNextFeature()
