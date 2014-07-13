@@ -1,1 +1,3 @@
 python ../converter/converter.py --width 900 --country_name_index 37 --country_code_index 4 --longitude0 171.45 --where "iso_a2 = 'NZ'" --minimal_area 2500000000 --projection mill --name nz --language en ne_10m_admin_1_states_provinces/simplified.shp jquery.jvectormap.nz-mill-en.js
+
+python ../converter/converter.py --width 900 --country_name_index 8 --country_code_index 4 --longitude0 134.49 --where "iso_a2 = 'AU'" --minimal_area 25000 --projection mill --name au --language en ne_10m_admin_1_states_provinces/simplified.shp jquery.jvectormap.au-mill-en.js
